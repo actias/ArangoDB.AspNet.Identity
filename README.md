@@ -6,7 +6,7 @@ ASP.NET Identity provider that uses ArangoDB for storage
 ## Purpose ##
 
 This provider acts as a replacement/plugin for the ASP.NET Identity Framework using ArangoDB as the backend.
-This project replies on the fantastic [ArangoClient.NET](https://github.com/ra0o0f/arangoclient.net) by [ra0o0f](https://github.com/ra0o0f)
+This project relies on the fantastic [ArangoClient.NET](https://github.com/ra0o0f/arangoclient.net) by [ra0o0f](https://github.com/ra0o0f)
 for connectivity and will be updated as that library is updated.
 
 ## Installation ##
