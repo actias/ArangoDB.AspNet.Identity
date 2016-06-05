@@ -9,6 +9,12 @@ This provider acts as a replacement/plugin for the ASP.NET Identity Framework us
 This project replies on the fantastic [ArangoClient.NET](https://github.com/ra0o0f/arangoclient.net) by [ra0o0f](https://github.com/ra0o0f)
 for connectivity and will be updated as that library is updated.
 
+## Installation ##
+
+```
+Install-Package ArangoDB.AspNet.Identity
+```
+
 ## Features ##
 * Drop-in replacement ASP.NET Identity with ArangoDB as the backing store.
 * Requires only 1 ArangoDB document type, while EntityFramework requires 5 tables
