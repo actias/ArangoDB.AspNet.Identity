@@ -393,6 +393,16 @@ namespace ArangoDB.AspNet.Identity
             return Task.FromResult(0);
         }
 
+        Task<TUser> IUserStore<TUser, string>.FindByIdAsync(string userId)
+        {
+            return FindByIdAsync(userId);
+        }
+
+        Task<TUser> IUserStore<TUser, string>.FindByNameAsync(string userName)
+        {
+            return FindByNameAsync(userName);
+        }
+
         /// <summary>
         ///     Throws if disposed.
         /// </summary>
@@ -401,6 +411,86 @@ namespace ArangoDB.AspNet.Identity
         {
             if (_disposed)
                 throw new ObjectDisposedException(GetType().Name);
+        }
+
+        /// <summary>
+        /// Sets the email address of the user object.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public Task SetEmailAsync(TUser user, string email)
+        {
+            ThrowIfDisposed();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            user.Email = email;
+
+            return Task.FromResult(0);
+        }
+
+        /// <summary>
+        /// Gets the email address of the user.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public Task<string> GetEmailAsync(TUser user)
+        {
+            ThrowIfDisposed();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return Task.FromResult(user.Email);
+        }
+
+        /// <summary>
+        /// Gets whether or not the email address for the user has been confirmed.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public Task<bool> GetEmailConfirmedAsync(TUser user)
+        {
+            ThrowIfDisposed();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return Task.FromResult(user.EmailConfirmed);
+        }
+
+        /// <summary>
+        /// Sets whether or not the users email address has been confirmed.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="confirmed"></param>
+        /// <returns></returns>
+        public Task SetEmailConfirmedAsync(TUser user, bool confirmed)
+        {
+            ThrowIfDisposed();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            user.EmailConfirmed = confirmed;
+
+            return Task.FromResult(0);
+        }
+
+        /// <summary>
+        /// Finds a user by their email address.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public Task<TUser> FindByEmailAsync(string email)
+        {
+            var user = _db
+                .Query<TUser>()
+                .FirstOrDefault(x => x.Email == email.ToLower());
+
+            return Task.FromResult(user);
         }
     }
 }

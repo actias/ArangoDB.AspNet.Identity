@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using ArangoDB.Client;
 
 namespace ArangoDB.AspNet.Identity
@@ -19,6 +20,11 @@ namespace ArangoDB.AspNet.Identity
         ///     The _disposed
         /// </summary>
         private bool _disposed;
+
+        /// <summary>
+        /// Retrieves all users from the database.
+        /// </summary>
+        public IQueryable<TUser> Users => _db.Query<TUser>();
 
         /// <summary>
         ///     Gets the database from connection string.
@@ -83,5 +89,7 @@ namespace ArangoDB.AspNet.Identity
             return new ArangoDatabase(server, database);
         }
 
+
+        
     }
 }

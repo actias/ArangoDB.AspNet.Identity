@@ -1,5 +1,4 @@
-﻿
-using System.Configuration;
+﻿using System.Configuration;
 using ArangoDB.Client;
 using Microsoft.AspNet.Identity;
 
@@ -11,12 +10,15 @@ namespace ArangoDB.AspNet.Identity
     /// <typeparam name="TUser">The type of the t user.</typeparam>
     public partial class UserStore<TUser> :
         IUserStore<TUser>,
+        IQueryableUserStore<TUser>,
+        IUserEmailStore<TUser>,
         IUserLoginStore<TUser>, 
         IUserClaimStore<TUser>, 
         IUserRoleStore<TUser>, 
-        IUserPasswordStore<TUser>, 
+        IUserPasswordStore<TUser>,
         IUserSecurityStampStore<TUser> where TUser : IdentityUser
     {
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="UserStore{TUser}" /> class. Uses DefaultConnection name if none was
         ///     specified.
@@ -55,7 +57,6 @@ namespace ArangoDB.AspNet.Identity
         {
             _db = arangoDatabase;
         }
-
     }
 }
         

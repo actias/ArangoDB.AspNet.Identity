@@ -29,31 +29,47 @@ namespace ArangoDB.AspNet.Identity
         /// </summary>
         /// <value>The name of the user.</value>
 		public virtual string UserName { get; set; }
+
         /// <summary>
         /// Gets or sets the password hash.
         /// </summary>
         /// <value>The password hash.</value>
 		public string PasswordHash { get; set; }
+
+        /// <summary>
+        /// Gets or sets the email address.
+        /// </summary>
+        public virtual string Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the user email is confirmed.
+        /// </summary>
+        public bool EmailConfirmed { get; set; }
+
         /// <summary>
         /// Gets or sets the security stamp.
         /// </summary>
         /// <value>The security stamp.</value>
 		public string SecurityStamp { get; set; }
+
         /// <summary>
         /// Gets the roles.
         /// </summary>
         /// <value>The roles.</value>
 		public List<string> Roles { get; private set; }
+
         /// <summary>
         /// Gets the claims.
         /// </summary>
         /// <value>The claims.</value>
 		public List<IdentityUserClaim> Claims { get; private set; }
+
         /// <summary>
         /// Gets the logins.
         /// </summary>
         /// <value>The logins.</value>
 		public List<UserLoginInfo> Logins { get; private set; }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityUser"/> class.

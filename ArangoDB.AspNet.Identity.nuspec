@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Actias</authors>
+    <owners>Actias</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/actias/ArangoDB.AspNet.Identity</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ASP.NET Identity provider that uses ArangoDB for storage</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>ArangoDB AspNet AspNet.Identity</tags>
+  </metadata>
+</package>
